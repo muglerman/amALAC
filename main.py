@@ -35,11 +35,7 @@ def descargar():
     # Descargar música usando gamdl
     archivo = descargar_musica(url)
     
-    if archivo:
-        subir_a_telegram(archivo)
-        return f"Descarga completada  {archivo}"
-    else:
-        return "Hubo un error al intentar descargar la música."
+    
 
 # Configuración del servidor en Render
 if __name__ == '__main__':
