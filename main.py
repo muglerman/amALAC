@@ -5,10 +5,6 @@ import telebot
 
 app = Flask(__name__)
 
-# Configuración del bot de Telegram
-TOKEN = "TU_BOT_TOKEN"
-CHAT_ID = "TU_CHAT_ID"
-bot = telebot.TeleBot(TOKEN)
 
 # Función para descargar música con gamdl
 def descargar_musica(url):
@@ -21,10 +17,7 @@ def descargar_musica(url):
     except subprocess.CalledProcessError as e:
         return f"Error al ejecutar gamdl: {e.stderr.decode()}"
 
-# Subir a Telegram
-def subir_a_telegram(archivo):
-    with open(archivo, 'rb') as f:
-        bot.send_audio(CHAT_ID, f)
+
 
 # Ruta principal: carga la página web
 @app.route('/')
@@ -44,7 +37,7 @@ def descargar():
     
     if archivo:
         subir_a_telegram(archivo)
-        return f"Descarga completada y enviada a Telegram. {archivo}"
+        return f"Descarga completada  {archivo}"
     else:
         return "Hubo un error al intentar descargar la música."
 
