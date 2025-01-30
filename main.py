@@ -2,6 +2,31 @@ from flask import Flask, render_template, request
 import subprocess
 import logging
 
+import subprocess
+import logging
+
+logging.basicConfig(level=logging.INFO)
+
+def ejecutar_comando(link):
+    try:
+        logging.info(f"Iniciando la descarga para el enlace: {link}")
+        result = subprocess.run(['gamdl', link], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        
+        if result.returncode == 0:
+            logging.info(f"Descarga completada con éxito. Salida: {result.stdout}")
+        else:
+            logging.error(f"Error durante la descarga. Código de salida: {result.returncode}")
+            logging.error(f"Detalles del error: {result.stderr}")
+            return "Error durante la descarga."
+    except FileNotFoundError as e:
+        logging.error(f"Comando no encontrado: {e}")
+        return "Comando no encontrado."
+
+# Llama a la función con el enlace deseado
+enlace = "https://music.apple.com/us/album/whenever-you-need-somebody-2022-remaster/1624945511"
+ejecutar_comando(enlace)
+
+
 # Configuración básica de logging para capturar todos los logs
 logging.basicConfig(level=logging.DEBUG)
 
