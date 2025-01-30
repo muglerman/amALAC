@@ -10,3 +10,4 @@ flask
 gunicorn
 yt-dlp
 pyTelegramBotAPI
+gamdl
