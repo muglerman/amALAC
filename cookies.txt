@@ -1,0 +1,29 @@
+# Netscape HTTP Cookie File
+# http://curl.haxx.se/rfc/cookie_spec.html
+# This is a generated file! Do not edit.
+
+# Domain	Subdomain	Path	Secure	Expire	Name	Value
+.apple.com	TRUE	/	FALSE	1738595631	POD	es~es
+.apple.com	TRUE	/	FALSE	1772764144	itspod	3
+.apple.com	TRUE	/	TRUE	1740361633	XID	d9c91debc230c87edbdda4efc32c9c86
+.apple.com	TRUE	/	FALSE	1738549635	nn-user-journey	%7B%22value%22%3A%7B%22os%22%3A%22%22%2C%22device%22%3A%22macOS%22%2C%22journey%22%3A%7B%22lastPath%22%3A%22%2Fthread%2F7953279%22%2C%22stitchPath%22%3A%5B%22https%3A%2F%2Fwww.google.com%2F%22%2C%22%2Fthread%2F7953279%22%5D%7D%7D%2C%22expiry%22%3A1737770415144%7D
+.apple.com	TRUE	/	TRUE	1769305636	dssf	1
+.apple.com	TRUE	/	FALSE	0	geo	PE
+.idmsa.apple.com	TRUE	/	TRUE	1740279757	DES5e9596ed160b508f320b6df36d69d47d6	HSARMTKNSRVXWFlaqpdXgWVgWNtqTbXaAjcvFzPS/aDs3VRtHGX1vNoA2Bo0esMh4xeYSIU3x0p1XYfand1tbf0y8tmERLhaQVTiwDJOf4JOxeVibEuZ/T9YuUI7VknGCH1rQAOVkOjaEd3N4g5g6gBlP2pK+0im3V8w0rj5oU9r8QudyYaFEaHOv39PpLt0nFAcFpEsnjvz60aRqtz6N61g1VvuqOLXiEH/xQ==SRVX
+.music.apple.com	TRUE	/	TRUE	1753756144	itre	0
+.music.apple.com	TRUE	/	TRUE	1753239760	media-user-token	AutJaJMq+oSAvJY06v99CobmAKXCLfa0cQ23xN6bIOfTtjwEkyjWbwIyG704JNq4qBeEAWt698TYe6kTV5754+a1mRryZJSWD0X96qHPv1/J7Aq9zNqeK5M5t/3+QbgZqRZCp2yEIyZkQ/jwF9isQ4Pqm61dXwlljyysNCyyAhoOj+j0ci062XQxzdARmiOOkxhKlXIQahqzUjYF596nex8f4v5aSqEdm4aLowdWfflk/klEoA==
+.music.apple.com	TRUE	/	FALSE	1769223760	itua	PE
+.music.apple.com	TRUE	/	FALSE	1753455760	pltvcid	2b2eeab526594235b7a6867aae66a0f4003
+.music.apple.com	TRUE	/	FALSE	1753455760	pldfltcid	a5ec58b408814ee0a82768e2041eb058003
+.music.apple.com	TRUE	/	TRUE	1745463760	mut-refresh	1
+.music.apple.com	TRUE	/	TRUE	1740385079	aff	ewoJIjExLTEiID0gewoJCSJleHBpcmVzIiA9ICIxNzQwMzg1MDgwMDAwIjsKCQkiY2xpY2tUaW1lIiA9ICIxNzM3NzkzMDgwMDAwIjsKCQkidG9rZW4iID0gIjEwMDBsMzNRVSI7CgkJImFwcFR5cGUiID0gIjEiOwoJfTsKfQ==
+.podcasts.apple.com	TRUE	/	TRUE	1753239761	media-user-token	AutJaJMq+oSAvJY06v99CobmAKXCLfa0cQ23xN6bIOfTtjwEkyjWbwIyG704JNq4qBeEAWt698TYe6kTV5754+a1mRryZJSWD0X96qHPv1/J7Aq9zNqeK5M5t/3+QbgZqRZCp2yEIyZkQ/jwF9isQ4Pqm61dXwlljyysNCyyAhoOj+j0ci062XQxzdARmiOOkxhKlXIQahqzUjYF596nex8f4v5aSqEdm4aLowdWfflk/klEoA==
+.podcasts.apple.com	TRUE	/	FALSE	1769223761	itua	PE
+.podcasts.apple.com	TRUE	/	FALSE	1753455761	pltvcid	2b2eeab526594235b7a6867aae66a0f4003
+.podcasts.apple.com	TRUE	/	FALSE	1753455761	pldfltcid	a5ec58b408814ee0a82768e2041eb058003
+.podcasts.apple.com	TRUE	/	TRUE	1745463761	mut-refresh	1
+.tv.apple.com	TRUE	/	TRUE	1753239761	media-user-token	AutJaJMq+oSAvJY06v99CobmAKXCLfa0cQ23xN6bIOfTtjwEkyjWbwIyG704JNq4qBeEAWt698TYe6kTV5754+a1mRryZJSWD0X96qHPv1/J7Aq9zNqeK5M5t/3+QbgZqRZCp2yEIyZkQ/jwF9isQ4Pqm61dXwlljyysNCyyAhoOj+j0ci062XQxzdARmiOOkxhKlXIQahqzUjYF596nex8f4v5aSqEdm4aLowdWfflk/klEoA==
+.tv.apple.com	TRUE	/	FALSE	1769223761	itua	PE
+.tv.apple.com	TRUE	/	FALSE	1753455761	pltvcid	2b2eeab526594235b7a6867aae66a0f4003
+.tv.apple.com	TRUE	/	FALSE	1753455761	pldfltcid	a5ec58b408814ee0a82768e2041eb058003
+.tv.apple.com	TRUE	/	TRUE	1745463761	mut-refresh	1
