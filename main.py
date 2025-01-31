@@ -37,7 +37,7 @@ def descargar_musica():
 
         # Ejecutamos el comando gamdl y capturamos tanto stdout como stderr
         result = subprocess.run(
-            ['gamdl', link, '--output', DOWNLOAD_FOLDER],
+            ['gamdl', link],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True
