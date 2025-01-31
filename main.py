@@ -32,11 +32,13 @@ def descargar_musica(link):
 
         # Ejecutamos el comando gamdl y capturamos tanto stdout como stderr
         result = subprocess.run(
-            ['gamdl', '--output-path', DOWNLOAD_FOLDER, link],
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=True
+        ['gamdl', '--output-path', DOWNLOAD_FOLDER, link],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+        timeout=900  # Aumentar el timeout a 5 minutos (300 segundos)
         )
+
 
         if result.returncode == 0:
             logging.info(f"Descarga completada con éxito. Salida: {result.stdout}")
