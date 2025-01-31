@@ -1,24 +1,25 @@
 import os
+import shutil
+from flask import Flask, send_from_directory
 import subprocess
 import logging
-from flask import Flask, request, send_from_directory
 
 # Crear la aplicación Flask
 app = Flask(__name__)
 
-# Configuración básica del logging para mostrar información en la consola
-logging.basicConfig(level=logging.DEBUG)
+# Directorio de almacenamiento para los archivos descargados
+DOWNLOAD_FOLDER = '/tmp/music_downloads'  # Directorio temporal donde se guardarán los archivos
 
-# Directorio donde se almacenarán los archivos descargados
-DOWNLOAD_FOLDER = './descargas'
+# Crear el directorio si no existe
+if not os.path.exists(DOWNLOAD_FOLDER):
+    os.makedirs(DOWNLOAD_FOLDER)
 
-# Asegúrate de que el directorio de descargas exista
-os.makedirs(DOWNLOAD_FOLDER, exist_ok=True)
-
+# Ruta básica
 @app.route('/')
 def hello_world():
     return '¡Hola Mundo! La aplicación está funcionando.'
 
+# Ruta para descargar el archivo
 @app.route('/download/<filename>')
 def download_file(filename):
     try:
@@ -26,35 +27,45 @@ def download_file(filename):
     except FileNotFoundError:
         return "Archivo no encontrado", 404
 
-import threading
-import subprocess
-import logging
-
-# Función para ejecutar la descarga en segundo plano
+# Función para descargar música
 def descargar_musica(link):
     try:
         logging.info(f"Iniciando la descarga para el enlace: {link}")
+
+        # Ejecutamos el comando gamdl y capturamos tanto stdout como stderr
         result = subprocess.run(
-            ['gamdl', '--output-path', '/tmp', link],
+            ['gamdl', '--output-path', DOWNLOAD_FOLDER, link],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True
         )
+
         if result.returncode == 0:
             logging.info(f"Descarga completada con éxito. Salida: {result.stdout}")
+
+            # Suponiendo que el archivo se descargó correctamente, extraemos el nombre del archivo.
+            filename = result.stdout.splitlines()[-1].split()[-1]  # Ajusta según la salida de gamdl
+
+            logging.info(f"El archivo descargado es: {filename}")
+            
+            # Llamar a la ruta para descargar el archivo
+            return download_file(filename)
+
         else:
             logging.error(f"Error durante la descarga. Detalles: {result.stderr}")
+            return "Hubo un error al descargar el archivo", 500
+
     except Exception as e:
         logging.error(f"Se produjo un error inesperado: {str(e)}")
+        return "Error inesperado durante la descarga", 500
 
+# Ruta para iniciar la descarga
 @app.route('/descargar')
 def iniciar_descarga():
-    link = "https://music.apple.com/us/album/whenever-you-need-somebody-2022-remaster/1624945511"
-    # Ejecutar la descarga en un hilo separado
-    threading.Thread(target=descargar_musica, args=(link,)).start()
-    return "Descarga iniciada en segundo plano."
+    # Coloca el enlace de la música que deseas descargar
+    enlace = "https://music.apple.com/us/album/whenever-you-need-somebody-2022-remaster/1624945511"
+    return descargar_musica(enlace)
 
-
-# Verificar que el script se ejecute directamente
+# Iniciar el servidor Flask
 if __name__ == "__main__":
     app.run(debug=True)
