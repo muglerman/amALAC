@@ -1,8 +1,7 @@
 import os
-import shutil
-from flask import Flask, send_from_directory
 import subprocess
 import logging
+from flask import Flask, send_from_directory
 
 # Crear la aplicación Flask
 app = Flask(__name__)
@@ -14,7 +13,6 @@ DOWNLOAD_FOLDER = '/tmp/music_downloads'  # Directorio temporal donde se guardar
 if not os.path.exists(DOWNLOAD_FOLDER):
     os.makedirs(DOWNLOAD_FOLDER)
 
-# Ruta básica
 @app.route('/')
 def hello_world():
     return '¡Hola Mundo! La aplicación está funcionando.'
@@ -53,11 +51,11 @@ def descargar_musica(link):
 
         else:
             logging.error(f"Error durante la descarga. Detalles: {result.stderr}")
-            return "Hubo un error al descargar el archivo", 500
+            return f"Hubo un error al descargar el archivo: {result.stderr}", 500
 
     except Exception as e:
         logging.error(f"Se produjo un error inesperado: {str(e)}")
-        return "Error inesperado durante la descarga", 500
+        return f"Error inesperado durante la descarga: {str(e)}", 500
 
 # Ruta para iniciar la descarga
 @app.route('/descargar')
@@ -69,3 +67,4 @@ def iniciar_descarga():
 # Iniciar el servidor Flask
 if __name__ == "__main__":
     app.run(debug=True)
+
