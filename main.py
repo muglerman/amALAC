@@ -26,9 +26,9 @@ def download_file(filename):
     except FileNotFoundError:
         return "Archivo no encontrado", 404
 
-@app.route('/descargar', methods=['POST'])
+@app.route('/descargar')
 def descargar_musica():
-    link = request.form.get('link')
+    link = "https://music.apple.com/us/album/whenever-you-need-somebody-2022-remaster/1624945511"
     if not link:
         return "Por favor, proporciona un enlace válido", 400
 
